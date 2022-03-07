@@ -1,0 +1,67 @@
+swagger: '2.0'
+info: {title: Star Wars API, version: '1.0', description: Power Connector}
+host: jofusiondevapim.azure-api.net
+basePath: /sw
+schemes: [https]
+securityDefinitions: {}
+paths:
+  /people/:
+    get:
+      description: Get characters from the Star Wars universe
+      operationId: Getpeople
+      summary: GetPeople
+      parameters:
+      - {name: search, in: query, type: string}
+      responses:
+        '200':
+          description: ''
+          schema:
+            type: object
+            properties:
+              count: {type: integer, format: int32, description: count}
+              next: {type: string, description: next}
+              previous: {type: string, description: previous}
+              results:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name: {type: string, description: name}
+                    height: {type: string, description: height}
+                    mass: {type: string, description: mass}
+                    hair_color: {type: string, description: hair_color}
+                    skin_color: {type: string, description: skin_color}
+                    eye_color: {type: string, description: eye_color}
+                    birth_year: {type: string, description: birth_year}
+                    gender: {type: string, description: gender}
+                    homeworld: {type: string, description: homeworld}
+                    films:
+                      type: array
+                      items: {type: string}
+                      description: films
+                    species:
+                      type: array
+                      items: {}
+                      description: species
+                    vehicles:
+                      type: array
+                      items: {type: string}
+                      description: vehicles
+                    starships:
+                      type: array
+                      items: {type: string}
+                      description: starships
+                    created: {type: string, description: created}
+                    edited: {type: string, description: edited}
+                    url: {type: string, description: url}
+                description: results
+  /people/{id}/:
+    get:
+      description: Get individual characters from Star Wars
+      operationId: getpeoplebyid
+      summary: GetPeopleById
+      parameters:
+      - {name: id, in: path, required: true, type: string}
+      responses:
+        '200': {description: ''}
+tags: []
