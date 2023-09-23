@@ -193,10 +193,9 @@ alt="Graphical user interface, application Description automatically generated" 
 Now select the arrow to the right of the first member entry, and change
 the formula bar to read the following:
 
-Navigate(DetailScreen1, None);
+ClearCollect(charactersCollection, StarWarsAPI.Getpeople({search: ThisItem.MemberFavoriteCharacter}).results);
+Navigate(DetailScreen1);
 
-ClearCollect(charactersCollection, StarWarsAPI.Getpeople({search:
-ThisItem.MemberFavoriteCharacter}).results);
 
 <img src="./media/image28.png" style="width:6.26806in;height:4.17847in"
 alt="Graphical user interface, application, table, Word Description automatically generated" />
